@@ -2,15 +2,62 @@
     <h1 class="text-center">Eat-Da-Burger</h1>
 
     <div class="row mt-5">
-        <div class="col-12 text-center">input</div>
+        <div class="col-12 text-center">
+            <form id="addburger" class="button-size">
+                <textarea type="text" name="burger" id="new-burger"></textarea>
+                <button type="submit">Order up!</button>
+            </form>
+        </div>
     </div>
     
+
     <div class="row mt-5">
-        <div class="col-lg-6 text-center">ready to eat</div>
-        <div class="col-lg-6 text-center">eaten</div>
+        <div class="col-lg-6 text-center">
+            <h1>READY TO EAT</h1>
+            {{#each burgers}}
+				{{#unless this.devoured}}
+				  <div class="burger">
+				    <form class="devour-burger-form" action="/{{id}}?_method=PUT" method="POST">
+				  		<button class="eat-btn">Devour me!</button>
+				    </form>
+						{{burger_name}}
+				  </div>
+				{{/unless}}
+			{{/each}}
+        </div>
+
+        <div class="col-lg-6 text-center">
+            <h1>OMNOMNOM</h1>
+            
+        </div>
+
     </div> 
 
     
 
     
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+    $("#addburger").on("submit", function(event) {
+    event.preventDefault();
+
+    var newBurger = {
+      burger_name: $("#new-burger").val().trim()
+    };
+
+    // Send the POST request.
+    $.ajax("/api/burgers", {
+      type: "POST",
+      data: newBurger
+    }).then(
+      function() {
+        console.log("added new burger");
+        // Reload the page to get the updated list
+        location.reload();
+      }
+    );
+  });
+
+
+</script>

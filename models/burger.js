@@ -3,18 +3,18 @@ var orm = require("../config/orm.js");
 
 var burger = {
   selectAll: function(cb) {
-    orm.selectAll("burgers", function(res) {
+    orm.selectAll(function(res) {
       cb(res);
     });
   },
   // The variables cols and vals are arrays.
   insertOne: function(newVal, cb) {
-    orm.insertOne("burgers", newVal, function(res) {
+    orm.insertOne(newVal, function(res) {
       cb(res);
     });
   },
   updateOne: function(trueFalse, whichID, cb) {
-    orm.updateOne("burgers", trueFalse, whichID, function(res) {
+    orm.updateOne(trueFalse, whichID, function(res) {
       cb(res);
     });
   }
