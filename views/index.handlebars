@@ -1,11 +1,11 @@
-<img style="width: 300px; margin: 0 auto; display: block" src="https://www.freepngimg.com/download/burger%20sandwich/72-hamburger-burger-png-image-mac-burger.png" alt="burger">
+<img class="mt-5" style="width: 300px; margin: 0 auto; display: block" src="https://www.freepngimg.com/download/burger%20sandwich/72-hamburger-burger-png-image-mac-burger.png" alt="burger">
     <h1 class="text-center">Eat-Da-Burger</h1>
 
     <div class="row mt-5">
         <div class="col-12 text-center">
             <form id="addburger" class="button-size">
-                <textarea type="text" name="burger" id="new-burger"></textarea>
-                <button type="submit">Order up!</button>
+                <input type="text" name="burger" id="new-burger"></input>
+                <button type="submit" style="background-color: green; color: white">Order up!</button>
             </form>
         </div>
     </div>
@@ -14,13 +14,13 @@
     <div class="row mt-5">
         <div class="col-lg-6 text-center">
             <h1>READY TO EAT</h1>
+            <hr>
             {{#each burgers}}
 				{{#unless this.devoured}}
 				  <div class="burger">
-				    <form class="devour-burger-form" action="/{{id}}?_method=PUT" method="POST">
-				  		<button class="eat-btn">Devour me!</button>
-				    </form>
-						{{burger_name}}
+						<h4>{{this.burger_name}}</h4>
+              <button data-burgerid="{{this.id}}" id="devourBtn" style="background-color: rgb(167, 25, 25); color: white">Devour me!</button>
+              <br>
 				  </div>
 				{{/unless}}
 			{{/each}}
@@ -28,7 +28,15 @@
 
         <div class="col-lg-6 text-center">
             <h1>OMNOMNOM</h1>
-            
+            <hr>
+            {{#each burgers}}
+				{{#if this.devoured}}
+				  <div class="burger">
+                      <h4>{{burger_name}}</h4>
+                      <br>
+                    </div>
+				{{/if}}
+			{{/each}}
         </div>
 
     </div> 
@@ -59,5 +67,27 @@
     );
   });
 
+   $("#devourBtn").on("click", function(event) {
+    // Make sure to preventDefault on a submit event.
+    event.preventDefault();
 
+    var thisid = $(this).data("burgerid");
+
+    var newDev = {
+      devoured: true
+    }
+
+    $.ajax("/api/burgers/" + thisid, {
+      type: "PUT",
+      data: newDev
+    }).then(
+      function() {
+        console.log("UPDATEDDDDDDDDDDD");
+        // Reload the page to get the updated list
+        location.reload();
+      }
+    );
+  });
+
+  
 </script>

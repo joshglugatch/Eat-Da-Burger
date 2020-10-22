@@ -25,3 +25,52 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
   </body>
 </html>
+
+
+
+
+
+<script type="text/javascript">
+    $("#addburger").on("submit", function(event) {
+    event.preventDefault();
+
+    var newBurger = {
+      burger_name: $("#new-burger").val().trim()
+    };
+
+    // Send the POST request.
+    $.ajax("/api/burgers", {
+      type: "POST",
+      data: newBurger
+    }).then(
+      function() {
+        console.log("added new burger");
+        // Reload the page to get the updated list
+        location.reload();
+      }
+    );
+  });
+
+    $("#devourBtn").on("submit", function(event) {
+    // Make sure to preventDefault on a submit event.
+    event.preventDefault();
+
+    var id = $(this).data("burgerid");
+
+    var updateDevour = {
+        whichID: id
+    }
+
+    // Send the PUT request.
+    $.ajax("/api/burgers/" + id, {
+      type: "PUT",
+      data: updateDevour
+    }).then(
+      function() {
+        console.log("updated status");
+        // Reload the page to get the updated list
+        location.reload();
+      }
+    );
+  });
+</script>

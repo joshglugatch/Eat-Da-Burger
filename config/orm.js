@@ -19,9 +19,9 @@ var orm = {
         });
       },
 
-    updateOne: function(trueFalse, whichID, cb) {
-        var queryString = "UPDATE burgers SET devoured = ? WHERE id = ?";
-        connection.query(queryString, [trueFalse,whichID, cb], function(err, result) {
+    updateOne: function(dev, upID, cb) {
+        var queryString = "UPDATE burgers SET devoured = "+dev+" WHERE id =" + upID;
+        connection.query(queryString, function(err, result) {
           if (err) throw err;
           cb(result);
         });
