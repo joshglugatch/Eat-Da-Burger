@@ -30,13 +30,13 @@
             <h1>OMNOMNOM</h1>
             <hr>
             {{#each burgers}}
-				{{#if this.devoured}}
-				  <div class="burger">
-                      <h4>{{burger_name}}</h4>
-                      <br>
-                    </div>
-				{{/if}}
-			{{/each}}
+              {{#if this.devoured}}
+                <div class="burger">
+                    <h4>{{burger_name}}</h4>
+                    <br>
+                </div>
+              {{/if}}
+            {{/each}}
         </div>
 
     </div> 
@@ -73,7 +73,7 @@
 
     var thisid = $(this).data("burgerid");
 
-    console.log(thisid)
+    //console.log(thisid)
 
     var newDev = {
       thisID: thisid
