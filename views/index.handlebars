@@ -16,14 +16,14 @@
             <h1>READY TO EAT</h1>
             <hr>
             {{#each burgers}}
-				{{#unless this.devoured}}
-				  <div class="burger">
-						<h4>{{this.burger_name}}</h4>
-              <button data-burgerid="{{this.id}}" id="devourBtn" style="background-color: rgb(167, 25, 25); color: white">Devour me!</button>
-              <br>
-				  </div>
-				{{/unless}}
-			{{/each}}
+              {{#unless this.devoured}}
+                <div class="burger">
+                  <h4>{{this.burger_name}}</h4>
+                    <button data-burgerid="{{this.id}}" class="devourBtn" style="background-color: rgb(167, 25, 25); color: white">Devour me!</button>
+                    <br>
+                </div>
+              {{/unless}}
+            {{/each}}
         </div>
 
         <div class="col-lg-6 text-center">
@@ -67,14 +67,16 @@
     );
   });
 
-   $("#devourBtn").on("click", function(event) {
+   $(".devourBtn").on("click", function(event) {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
 
     var thisid = $(this).data("burgerid");
 
+    console.log(thisid)
+
     var newDev = {
-      devoured: true
+      thisID: thisid
     }
 
     $.ajax("/api/burgers/" + thisid, {

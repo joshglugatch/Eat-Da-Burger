@@ -9,7 +9,7 @@ var burger = require("../models/burger.js");
       var hbsObject = {
         burgers: data
       };
-      console.log(hbsObject);
+      // console.log(hbsObject);
       res.render("index", hbsObject);
     });
   });
@@ -24,13 +24,14 @@ var burger = require("../models/burger.js");
   });
   
   router.put("/api/burgers/:id", function(req, res) {
-    burger.updateOne(req.body.devoured, req.params.id, function(result) {
+    burger.updateOne(req.body.thisID, function(result) {
+        console.log(result)
         if (result.changedRows == 0) {
-            // If no rows were changed, then the ID must not exist, so 404
-            return res.status(404).end();
-          } else {
-            res.status(200).end();
-          }
+          // If no rows were changed, then the ID must not exist, so 404
+          return res.status(404).end();
+        } else {
+          res.status(200).end();
+        }
     });
   });
   
