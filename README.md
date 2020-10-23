@@ -1,7 +1,9 @@
 # Eat Da Burger
 [![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](https://www.mit.edu/~amini/LICENSE.md)
 <br>
- Developers are often tasked with creating interfaces that make it easy for non-developers to view and interact with information stored in databases. Often these interfaces are known as Content Management Systems. This repository architects and builds a solution for managing a company's employees using node, inquirer, and MySQL.
+ Eat Da Burger is a burger logger with MySQL, Node, Express, Handlebars and a homemade ORM (yum!). It follows the MVC design pattern; uses Node and MySQL to query and route data in the app, and Handlebars to generate the HTML. Users can add burgers of their choice and devour them, changing their location on the webpage.
+
+<br>
 
  ## Table of Contents:
 * [Built With](#Built-With)
