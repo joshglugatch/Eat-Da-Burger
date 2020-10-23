@@ -9,13 +9,13 @@
 * [Installation](#Installation)
 * [Features](#Features)
 * [Code Explained](#Code-Explained)
-    1.[ORM](#ORM)
-    2.[Model](#Model)
-    3.[Controller](#Controller)
-    4.[AJAX](#AJAX)
-*[Deployed Link](#Deployed-Link)
-*[Repository Link](#Repository-Link)
-*[Author](#Author)
+    * [ORM](#ORM)
+    * [Model](#Model)
+    * [Controller](#Controller)
+    * [AJAX](#AJAX)
+* [Deployed Link](#Deployed-Link)
+* [Repository Link](#Repository-Link)
+* [Author](#Author)
 
 
   
