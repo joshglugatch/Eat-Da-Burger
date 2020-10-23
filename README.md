@@ -44,7 +44,7 @@ To run locally with node:
 ```
 node server.js
 ```
-It should run through express or locally on localhost on port 8080 :
+It should run through express or locally on localhost through port 8080 :
 ```javaScript
 var PORT = process.env.PORT || 8080;
 ```
@@ -148,7 +148,7 @@ var burger = {
 <br>
 
 ### Controller
-Our controller is the main communicator the data and the user. Using Express we can get info (like user inputs), post new info, and update current info. It tells the program how to handle the data and renders the html onto the page.
+Our controller is the main communicator between the data and the user. Using Express we can get info (like user inputs), post new info, and update current info. It tells the program how to handle the data and renders the html onto the page.
 
 <br>
 
@@ -188,7 +188,7 @@ router.get("/", function(req, res) {
 <br>
 
 ### AJAX
-AJAX calls are used on click/submit to respond to page events. When the "Order up!" form is submitted the new data is added to an api page to be grabbed in the controller and sent the new/updated input to the database.
+AJAX calls are used on click/submit to respond to page events. When the "Order up!" form is submitted the new data is added to an api page to be grabbed in the controller and send the new/updated input to the database.
 
 ```javaScript
  $("#addburger").on("submit", function(event) {
@@ -249,6 +249,8 @@ https://github.com/joshglugatch/Eat-Da-Burger
 
 ### Author:
 Josh Glugatch  
+
+Portfolio link: https://joshglugatch.github.io/josh-glugatch-portfolio/
 
 [![GitHub](https://img.shields.io/badge/github-%23100000.svg?&style=for-the-badge&logo=github&logoColor=white)](https://github.com/joshglugatch)
 <br>
